@@ -1,0 +1,6 @@
+#!/bin/bash
+# This hook is run after this virtualenv is activated.
+# Should be copied into $WORKON_HOME/<env_name>/bin/postactivate
+
+export DJANGO_SETTINGS_MODULE=settings.development
+echo Settings file set to $DJANGO_SETTINGS_MODULE

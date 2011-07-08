@@ -1,0 +1,55 @@
+import os
+
+# Try to import Django stuff.
+try:
+    from django import VERSION
+    from django.core.management import setup_environ
+    from django.utils import importlib
+
+    # DJANGO_SETTINGS_MODULE may be set when a particular virtualenv is activated
+    if 'DJANGO_SETTINGS_MODULE' in os.environ:
+        settings = importlib.import_module(os.environ['DJANGO_SETTINGS_MODULE'])
+        print "Imported Django settings (from %s)" % os.environ['DJANGO_SETTINGS_MODULE']
+    else:
+        try:
+            # If settings is a package, assume we want to use settings.development
+            from settings import development as settings
+            print "Imported Django settings (from settings.development)"
+        except:
+            import settings
+            print "Imported Django settings (from settings)"
+
+    setup_environ(settings)
+
+    # Import all the project's models
+    from django.db.models.loading import get_models
+    for m in get_models():
+        module = m.__module__
+        name = m.__name__
+        exec "from %s import %s" % (module, name)
+        print "Imported %s from %s" % (name, module)
+
+    # Create a test client for making requests
+    from django.test.client import Client
+    c = Client()
+    print "Test client created as 'c'"
+
+    # If Django is 1.3 or later, create a function to enable query logging
+    if VERSION >= 1.3:
+        def log_queries():
+            import logging
+            l = logging.getLogger('django.db.backends')
+            l.setLevel(logging.DEBUG)
+            l.addHandler(logging.StreamHandler())
+        print "Call log_queries() to enable query logging"
+
+except:
+    pass
+
+# If the Python Redis client is installed, import it
+try:
+    import redis
+    r = redis.Redis()
+    print "Redis client created as 'r'"
+except:
+    pass

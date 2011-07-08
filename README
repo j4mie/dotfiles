@@ -1,0 +1,5 @@
+These are my dotfiles.
+
+Notice there's no Makefile. This stuff only gets used very occasionally: when I get a new computer (or wipe my existing one). I'd rather spend ten minutes symlinking a few files by hand than write something that automagically moves around vital files.
+
+The vim stuff isn't commented very well. Sorry. That's because I don't really understand it myself. Fortunately, it's pretty minimal anyway.

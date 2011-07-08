@@ -1,0 +1,15 @@
+[user]
+	name = Jamie Matthews
+	email = jamie.matthews@gmail.com
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+	interactive = auto
+[core]
+	excludesfile = ~/.gitignore
+	quotepath = false
+[merge]
+	summary = true
+[format]
+	pretty = "format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"

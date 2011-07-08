@@ -1,0 +1,10 @@
+This isn't a dotfile, don't try to symlink it anywhere..
+
+List of essential things to install with homebrew:
+
+ack
+bash-completion
+git
+redis
+ssh-copy-id
+wget

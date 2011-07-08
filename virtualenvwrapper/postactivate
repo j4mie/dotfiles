@@ -1,0 +1,19 @@
+#!/bin/bash
+# This hook is run after every virtualenv is activated.
+
+# This file should be copied into $WORKON_HOME/postactivate, as a symlink doesn't seem to work
+
+# By convention, a virtualenv named "myproject" will be associated with a project in ~/code/myproject/
+DIR=~/code/$(basename $VIRTUAL_ENV)/
+
+if [ -d "$DIR" ]; then
+    echo "Changing directory to $DIR"
+    cd $DIR
+fi
+
+# Add virtualenv name to prompt
+PS1="$JAMIES_BASEPROMPT \033[30mworkon \033[31m\$(basename '${VIRTUAL_ENV}')\033[00m
+$ "
+
+export OLDPYTHONPATH=$PYTHONPATH
+export PYTHONPATH=`pwd`
