@@ -26,8 +26,11 @@ try:
     for m in get_models():
         module = m.__module__
         name = m.__name__
-        exec "from %s import %s" % (module, name)
-        print "Imported %s from %s" % (name, module)
+        try:
+            exec "from %s import %s" % (module, name)
+            print "Imported %s from %s" % (name, module)
+        except:
+            print "Failed to import %s from %s." % (name, module)
 
     # Create a test client for making requests
     from django.test.client import Client
