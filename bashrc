@@ -60,7 +60,8 @@ if [ -f ~/.pythonrc ]; then
 fi
 
 # don't write .pyc and .pyo files
-export PYTHONDONTWRITEBYTECODE=1
+# removed for now. seems to break pip.
+# export PYTHONDONTWRITEBYTECODE=1
 
 # unbreak xcode gcc
 export ARCHFLAGS="-arch i386 -arch x86_64"
