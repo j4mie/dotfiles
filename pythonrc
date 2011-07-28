@@ -37,14 +37,17 @@ try:
     c = Client()
     print "Test client created as 'c'"
 
-    # If Django is 1.3 or later, create a function to enable query logging
-    if VERSION >= 1.3:
+    # If Django logging is available, create a function to enable query logging
+    try:
+        from django.utils import log
         def log_queries():
             import logging
             l = logging.getLogger('django.db.backends')
             l.setLevel(logging.DEBUG)
             l.addHandler(logging.StreamHandler())
         print "Call log_queries() to enable query logging"
+    except:
+       print "This version of Django does not support query logging"
 
 except:
     pass
