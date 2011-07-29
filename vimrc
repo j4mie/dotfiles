@@ -1,3 +1,6 @@
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 set nocompatible
 
 filetype on
