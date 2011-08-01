@@ -67,3 +67,6 @@ fi
 # removed, seems to break homebrew
 # export ARCHFLAGS="-arch i386 -arch x86_64"
 export PATH=/usr/local/bin:/usr/local/sbin:/Developer/usr/bin:$PATH
+
+# node
+export NODE_PATH=/usr/local/lib/node_modules
