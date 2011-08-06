@@ -65,7 +65,7 @@ fi
 
 # unbreak xcode gcc
 # removed, seems to break homebrew
-# export ARCHFLAGS="-arch i386 -arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 export PATH=/usr/local/bin:/usr/local/sbin:/Developer/usr/bin:$PATH
 
 # node
