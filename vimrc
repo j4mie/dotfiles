@@ -30,3 +30,5 @@ highlight SpecialKey guifg=lightgray ctermfg=lightgray
 if &t_Co > 2 || has("gui_running")
     syntax on
 endif
+
+au BufNewFile,BufRead *.less set filetype=less
