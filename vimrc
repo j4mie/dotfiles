@@ -32,3 +32,5 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 au BufNewFile,BufRead *.less set filetype=less
+
+au BufNewFile,BufRead *.coffee setlocal shiftwidth=2 tabstop=2
