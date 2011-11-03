@@ -21,6 +21,7 @@ set nowritebackup
 set ruler
 set list
 scriptencoding utf-8
+set enc=utf-8
 set listchars=tab:>-,trail:·,extends:#,nbsp:.
 set cursorcolumn
 set cursorline
