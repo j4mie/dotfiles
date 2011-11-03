@@ -1,6 +1,19 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Check what platform we're on
+# https://github.com/baalexander/bash/blob/master/.bashrc
+platform='linux'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+  platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='macosx'
+fi
+
+
 # Pip and virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -49,9 +62,11 @@ export CLICOLOR=1
 PATH=~/bin:$PATH
 export PATH
 
-# Set up bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+# Set up bash completion, if it's been installed with homebrew
+if which brew &> /dev/null; then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+       . `brew --prefix`/etc/bash_completion
+    fi
 fi
 
 # set up python interpreter stuff
@@ -64,12 +79,16 @@ fi
 # export PYTHONDONTWRITEBYTECODE=1
 
 # unbreak xcode gcc
-# removed, seems to break homebrew
-export ARCHFLAGS="-arch x86_64"
+if [[ "$platform" == 'macosx' ]]; then
+    export ARCHFLAGS="-arch x86_64"
+fi
+
 export PATH=/usr/local/bin:/usr/local/sbin:/Developer/usr/bin:$PATH
 
 # node
 export NODE_PATH=/usr/local/lib/node_modules
 
 # homebrew pythonpath
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+if [[ "$platform" == 'macosx' ]]; then
+    export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+fi
