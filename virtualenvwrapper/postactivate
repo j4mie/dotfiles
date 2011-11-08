@@ -17,3 +17,9 @@ $ "
 
 export OLDPYTHONPATH=$PYTHONPATH
 export PYTHONPATH=`pwd`
+
+# Ruby gems http://bruno.im/2011/sep/29/streamline-your-django-workflow/
+
+export GEM_HOME="$VIRTUAL_ENV/gems"
+export GEM_PATH=""
+export PATH=$PATH:$GEM_HOME/bin
