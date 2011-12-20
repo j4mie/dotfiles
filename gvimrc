@@ -16,5 +16,5 @@ set showtabline=2
 if exists('+colorcolumn')
     autocmd FileType * set colorcolumn=
     autocmd FileType python set colorcolumn=80|match ColorColumn '\%>80v.\+'
-    highlight ColorColumn ctermbg=lightgrey guibg=grey95
+    highlight ColorColumn ctermbg=lightgray guibg=#073642
 endif

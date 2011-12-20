@@ -12,7 +12,7 @@ if [ -d "$DIR" ]; then
 fi
 
 # Add virtualenv name to prompt
-PS1="$JAMIES_BASEPROMPT \033[30mworkon \033[31m\$(basename '${VIRTUAL_ENV}')\033[00m
+PS1="$JAMIES_BASEPROMPT \033[36mworkon \033[31m\$(basename '${VIRTUAL_ENV}')\033[00m
 $ "
 
 export OLDPYTHONPATH=$PYTHONPATH

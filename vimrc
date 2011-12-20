@@ -26,6 +26,11 @@ set listchars=tab:>-,trail:·,extends:#,nbsp:.
 set cursorcolumn
 set cursorline
 
+"solarized theme
+syntax enable
+set background=dark
+colorscheme solarized
+
 highlight SpecialKey guifg=lightgray ctermfg=lightgray
 
 if &t_Co > 2 || has("gui_running")
