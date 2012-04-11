@@ -18,7 +18,6 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 export PIP_RESPECT_VIRTUALENV=true
-export PIP_REQUIRE_VIRTUALENV=true
 
 # Set up custom prompt.
 # quite a lot borrowed from http://github.com/mitsuhiko/dotfiles/blob/master/bash/bashrc
