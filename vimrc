@@ -40,3 +40,5 @@ endif
 au BufNewFile,BufRead *.less set filetype=less
 
 au BufNewFile,BufRead *.coffee setlocal shiftwidth=2 tabstop=2
+
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
