@@ -70,6 +70,12 @@ if which brew &> /dev/null; then
     fi
 fi
 
+# bash completion for linux, must be installed
+# with sudo apt-get install bash-completion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # set up python interpreter stuff
 if [ -f ~/.pythonrc ]; then
     export PYTHONSTARTUP=~/.pythonrc
