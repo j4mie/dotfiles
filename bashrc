@@ -15,9 +15,11 @@ fi
 
 
 # Pip and virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-export PIP_RESPECT_VIRTUALENV=true
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
+    export PIP_RESPECT_VIRTUALENV=true
+fi
 
 # Set up custom prompt.
 # quite a lot borrowed from http://github.com/mitsuhiko/dotfiles/blob/master/bash/bashrc
