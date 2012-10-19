@@ -48,7 +48,13 @@ function __pwd () {
     fi
 }
 
-export JAMIES_BASEPROMPT='\n\e${JAMIES_RED_COLOR}\u \
+function __ssh () {
+    if [ -n "$SSH_CLIENT" ]; then
+        echo '*** '
+    fi
+}
+
+export JAMIES_BASEPROMPT='\n\e${JAMIES_RED_COLOR}`__ssh`\u \
 \e${JAMIES_CYAN_COLOR}at \e${JAMIES_ORANGE_COLOR}\h \
 \e${JAMIES_CYAN_COLOR}in \e${JAMIES_GREEN_COLOR}`__pwd`\
 $(__git_ps1 " \e${JAMIES_CYAN_COLOR}on \e${JAMIES_PINK_COLOR}git:%s")\e${JAMIES_DEFAULT_COLOR}'
