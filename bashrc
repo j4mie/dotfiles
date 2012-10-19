@@ -105,3 +105,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 if [[ "$platform" == 'macosx' ]]; then
     export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 fi
+
+function sssh() {
+    ssh -t $@ dtach -A /tmp/dtach bash
+}
