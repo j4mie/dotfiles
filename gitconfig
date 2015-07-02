@@ -13,3 +13,5 @@
 	summary = true
 [format]
 	pretty = "format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
+[credential]
+	helper = osxkeychain
