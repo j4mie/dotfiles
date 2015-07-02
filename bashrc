@@ -98,14 +98,14 @@ fi
 
 export PATH=/usr/local/bin:/usr/local/sbin:/Developer/usr/bin:$PATH
 
-# node
-export NODE_PATH=/usr/local/lib/node_modules
-
-# homebrew pythonpath
-if [[ "$platform" == 'macosx' ]]; then
-    export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-fi
+# node & npm
+export PATH=/usr/local/share/npm/bin:$PATH
 
 function sssh() {
     ssh -t $@ dtach -A /tmp/dtach bash
 }
+
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+export NVM_DIR="/Users/jamie/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
